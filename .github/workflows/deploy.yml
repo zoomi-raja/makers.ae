@@ -1,7 +1,7 @@
 name: Deployment to GitHub Pages
 on:
   push:
-    branches: [ master ]
+    branches: [ zoomi ]
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CI: true
@@ -18,12 +18,15 @@ jobs:
         run: |
           npm install -g yarn
           yarn install
+      - name: validate members
+        run: |
+          yarn cmd members.validate
       - name: Generate build
         run: |
           yarn build
       - name: Deploy to GitHub Pages
         run: |
-          git config user.email "kamranahmed.se@gmail.com"
-          git config user.name "Kamran Ahmed"
+          git config user.email "zoomi.raja@gmail.com"
+          git config user.name "zoomi-raja"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy

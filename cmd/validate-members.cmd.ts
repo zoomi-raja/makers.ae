@@ -118,7 +118,7 @@ export const ValidateMembersCommand: Command = {
     ////////////////////////////////////////////////
     // go through parsed data to look for discripencies
     ////////////////////////////////////////////////
-    const error = makersProfile.reduce( (err,profile) => {
+    const error = await makersProfile.reduce( (err,profile) => {
       if(profile.messages.length > 0){
         profile.messages.forEach(msg => console.log(msg));
       }

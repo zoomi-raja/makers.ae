@@ -72,5 +72,6 @@ console.info('::::::::::::::::::::::::::::::::::::::::::');
       console.info('!!! Error occurred while running the command');
       console.error(`!!! ${ e.message }`);
       console.error(e.stack);
+      process.kill(process.pid, 'SIGINT');
     });
 })();
